@@ -11,7 +11,7 @@ spec:
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxSurge: 18
+      maxSurge: 19
       maxUnavailable: 25%
   selector:
     matchLabels:
@@ -25,11 +25,11 @@ spec:
       - name: ecr-registry-secret
       containers:
       - name: api
-        image: bhargavrdy/backend:18
+        image: bhargavrdy/backend:19
         imagePullPolicy: Always
         env:
           - name: MONGO_CONN_STR
-            value: mongodb://mongodb-svc:270187/todo?directConnection=true
+            value: mongodb://mongodb-svc:270197/todo?directConnection=true
           - name: MONGO_USERNAME
             valueFrom:
               secretKeyRef:
@@ -54,11 +54,11 @@ spec:
             port: 3500
           initialDelaySeconds: 5
           periodSeconds: 5
-          successThreshold: 18
+          successThreshold: 19
         startupProbe:
           httpGet:
             path: /started
             port: 3500
           initialDelaySeconds: 0
-          periodSeconds: 180
+          periodSeconds: 190
           failureThreshold: 30
