@@ -46,9 +46,9 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: frontend
+                name: prometheus-server
                 port:
-                  number: 3000
+                  number: 9090
           - path: /pro
             pathType: Prefix
             backend:
