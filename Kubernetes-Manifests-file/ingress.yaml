@@ -49,3 +49,10 @@ spec:
                 name: frontend
                 port:
                   number: 3000
+          - path: /pro
+            pathType: Prefix
+            backend:
+              service:
+                name: prometheus-server
+                port:
+                  number: 80
